@@ -263,6 +263,14 @@ class Resource(object):
         :type notify: bool
         :type kwargs: **Any
         """
+        
+        stick_to_default_server = self._options['stickToDefaultServer']
+        default_server = self._options['server']
+        if stick_to_default_server and default_server not in self.self:
+            resource_url = '/'.join(self.self.split('/')[3:])
+            self.self = f'{default_server}/{resource_url}'
+        
+        
         if async_ is None:
             async_ = self._options["async"]
 
@@ -367,6 +375,12 @@ class Resource(object):
 
         :rtype: Response
         """
+        stick_to_default_server = self._options['stickToDefaultServer']
+        default_server = self._options['server']
+        if stick_to_default_server and default_server not in self.self:
+            resource_url = '/'.join(self.self.split('/')[3:])
+            self.self = f'{default_server}/{resource_url}'
+            
         if self._options["async"]:
             if not hasattr(self._session, "_async_jobs"):
                 self._session._async_jobs = set()
@@ -793,6 +807,11 @@ class Role(Resource):
         :param groups: a group or groups to add to the role
         :type groups: string, list or tuple
         """
+        stick_to_default_server = self._options['stickToDefaultServer']
+        default_server = self._options['server']
+        if stick_to_default_server and default_server not in self.self:
+            resource_url = '/'.join(self.self.split('/')[3:])
+            self.self = f'{default_server}/{resource_url}'
 
         if users is not None and isinstance(users, str):
             users = (users,)
