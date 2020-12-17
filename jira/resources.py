@@ -264,7 +264,7 @@ class Resource(object):
         :type kwargs: **Any
         """
         
-        stick_to_default_server = self._options['stickToDefaultServer']
+        stick_to_default_server = self._options['stick_to_default_server']
         default_server = self._options['server']
         if stick_to_default_server and default_server not in self.self:
             resource_url = '/'.join(self.self.split('/')[3:])
@@ -375,7 +375,7 @@ class Resource(object):
 
         :rtype: Response
         """
-        stick_to_default_server = self._options['stickToDefaultServer']
+        stick_to_default_server = self._options['stick_to_default_server']
         default_server = self._options['server']
         if stick_to_default_server and default_server not in self.self:
             resource_url = '/'.join(self.self.split('/')[3:])
@@ -807,7 +807,7 @@ class Role(Resource):
         :param groups: a group or groups to add to the role
         :type groups: string, list or tuple
         """
-        stick_to_default_server = self._options['stickToDefaultServer']
+        stick_to_default_server = self._options['stick_to_default_server']
         default_server = self._options['server']
         if stick_to_default_server and default_server not in self.self:
             resource_url = '/'.join(self.self.split('/')[3:])
