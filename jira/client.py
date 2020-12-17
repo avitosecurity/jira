@@ -322,6 +322,7 @@ class JIRA(object):
         "async_workers": 5,
         "client_cert": None,
         "check_update": False,
+        "stick_to_default_server": False,
         # amount of seconds to wait for loading a resource after updating it
         # used to avoid server side caching issues, used to be 4 seconds.
         "delay_reload": 0,
@@ -359,8 +360,7 @@ class JIRA(object):
         max_retries=3,
         proxies=None,
         timeout=None,
-        auth=None,
-        stick_to_default_server=False
+        auth=None
     ):
         """Construct a Jira client instance.
 
