@@ -360,6 +360,7 @@ class JIRA(object):
         proxies=None,
         timeout=None,
         auth=None,
+        stick_to_default_server=False
     ):
         """Construct a Jira client instance.
 
